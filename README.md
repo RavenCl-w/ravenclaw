@@ -2,7 +2,7 @@
 
 ***
 
-Jacob Gregor, Katy Roffe, Brian Kasprzyk Cameron Walden
+Jacob Gregor, Katy Roffe, Brian Kasprzyk, Cameron Walden.
 
 ***
 

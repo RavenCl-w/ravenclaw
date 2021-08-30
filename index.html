@@ -22,7 +22,12 @@
           <section id = "homeScreen">
             <img src = "./img/home-screen-image.jpeg">
             <div id = "rightSideContent">
+              <!-- messing around with this. this stuff goes with question.js -->
               <p id = "storyP">story</p>
+              <label>enter your name</label>
+              <iput id = "nameInput"></input>
+              <button id = "startButton">SUBMIT</button>
+              <!-- to here -->
 
               <article id = "formSection">
               <form id = "questionOne"></form>
@@ -31,14 +36,17 @@
               <form id = "questionFour"></form>
               <form id = "questionFive"></form>
               </article>
-            <button id = "playButton">Play</button>
-            <button id = "submitButton">Submit</button>
+              <!-- play button is to get a new game going -->
+            <button id = "newGameButton">Play</button>
+            <!-- submit button is to submit your answers -->
+            <button id = "submitAnswerButton">Submit</button>
             </div>
          </section>
     </main>
     <footer>
       <h2><a href = "#">ABOUT US</a></h2>
     </footer>
+    <script src="./js/questions.js"></script>
   <script src="./js/app.js"></script>
 </body>
 </html>

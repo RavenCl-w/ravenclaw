@@ -10,43 +10,34 @@
         <link href="./css/style.css" rel="stylesheet">
     </head>
     <body>
-        <header>
-          <h1>Working Title</h1>
-          <img src = "">
-        </header>
+      <header>
+        <h1>Working Title</h1>
+        <img src = "">
+      </header>
         <main>
-        <section id = "gameContainer">
-          <!-- render buttons here -->
-          <nav id = "livesSection">
-          </nav>
-          <section id = "homeScreen">
-            <img src = "./img/home-screen-image.jpeg">
-            <div id = "rightSideContent">
-              <!-- messing around with this. this stuff goes with question.js -->
-              <p id = "storyP">story</p>
-              <label>enter your name</label>
-              <iput id = "nameInput"></input>
-              <button id = "startButton">SUBMIT</button>
-              <!-- to here -->
-
-              <article id = "formSection">
-              <form id = "questionOne"></form>
-              <form id = "questionTwo"></form>
-              <form id = "questionThree"></form>
-              <form id = "questionFour"></form>
-              <form id = "questionFive"></form>
-              </article>
-              <!-- play button is to get a new game going -->
-            <button id = "newGameButton">Play</button>
-            <!-- submit button is to submit your answers -->
-            <button id = "submitAnswerButton">Submit</button>
+          <section id = "game-container">
+            <div id = "lives-section">
+              <h1>Lives: 3</h1>
+              <h1>Memory Regained: 20%</h1>
             </div>
-         </section>
-    </main>
-    <footer>
-      <h2><a href = "#">ABOUT US</a></h2>
-    </footer>
-    <script src="./js/questions.js"></script>
+            <div id = "npc-image">
+              <img src = "./img/home-screen-image.jpeg">
+            </div>
+            <div id = "question-container">
+              <h1>'Welcome back userName(if returning player) or Welcome Adventurer..?'</h1>
+              <p id = "storyP">'A Little blurb about our game, perhaps a 1 or 2 line description of the world/experience. Like a cheesy 90's tag line.</p>
+              <div id="button-container">
+                <button id = "startButton">Start Game</button>
+                <button>Load Game</button>
+                <button>GameMasters</button>
+              </div>
+            </div>
+            </div>
+          </section>
+        </main>
+      <footer>
+        <h2><a href = "#">ABOUT US</a></h2>
+      </footer>
   <script src="./js/app.js"></script>
 </body>
 </html>

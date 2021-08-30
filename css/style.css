@@ -2,69 +2,51 @@ main {
     margin: 0 auto;
 }
 
-body {
+
+#game-container {
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: 40px repeat(5, 20%);
+    margin-bottom: 50px;
+    margin-left: 50px;
+    border: 2px solid black;
+}
+
+#lives-section {
+    grid-column: 8/11;
+    grid-row: 1/2;
+    padding: 5px;
+}
+
+#npc-image {
+    grid-column: 2/5;
+    grid-row: 3/6;
+
+}
+
+#question-container {
+    grid-column: 7/10;
+    grid-row: 3/6;
+    align-content: center;
+    padding: 30px;
+}
+
+#question-container h1 {
+    margin-bottom: 20px;
     
 }
 
-header {
-
+#question-container p {
+    margin-bottom: 20px;
 }
 
-nav {
-
+#question-container button {
+    display: block;
 }
 
-#gameContainer {
-
-}
-
-#livesSection {
-
-}
-
-#homeScreen {
-
-}
-
-#rightSideContent {
-
-}
-
-#storyP {
-
-}
-
-#formSection {
-
-}
-
-#questionOne {
-
-}
-
-#questionTwo {
-    
-}
-
-#questionThree {
-    
-}
-
-#questionFour {
-    
-}
-#questionFive {
-    
-}
-
-#playButton {
-
-}
-
-#submitButton {
-
-}
-
-footer {
-
+img {
+    max-height: 100%;
+    max-width: 100%;
 }

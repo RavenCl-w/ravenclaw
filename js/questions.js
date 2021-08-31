@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let loadGame = document.getElementById('loadButton');
   let gameContainer = document.getElementById('question-container');
   let imageContainer = document.getElementById('npc-image');
-  let startYourAdventureButton = document.getElementById('character-submit');
+  let startYourAdventureButton = '';
 
 
   startButton.addEventListener('click', function(){
@@ -24,12 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
       <option value="artist">Artist</option>
       <option value="historian">Historian</option>
       <option value="philosopher">Philosopher</option>
-      <select>
-      <input id="character-submit" type="submit" value="Start your Adventure">
+      </select>
+      <input type="submit" id="submit" value="Start your Adventure">
       ${renderChoices()};
       <form>`;
     imageContainer.innerHTML = '<img src=img/traveler.jpeg>';
+    startYourAdventureButton = document.getElementById('submit');
+    startYourAdventureButton.addEventListener('click', function(event) {
+      event.preventDefault();
+      console.log(event.target); 
+
+    });
   });
+  
 
 });
 //   loadGame.addEventListener('click' function() {})
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // --------------------------------------------------------------------- Variables --------------------------------------------------------------------------------
 User.allUsers = [];
-let startYourAdventureButton = document.getElementById('character-submit');
+// let startYourAdventureButton = document.getElementById('submit');
 
 // --------------------------------------------------------------------- Objects ----------------------------------------------------------------------------------
 
@@ -126,7 +133,7 @@ let story = {
     },
 }
 
-function renderQustions() {
+function renderQuestions() {
   gameContainer.innerHTML = " ";
 }
 
@@ -147,7 +154,3 @@ function startGame(event) {
   console.log(event.target)
 }
 
-startYourAdventureButton.addEventListener('submit', function() {
-  h1.innerHTML = 
-
-})

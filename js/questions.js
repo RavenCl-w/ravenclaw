@@ -8,72 +8,79 @@ document.addEventListener('DOMContentLoaded', function() {
   let loadGame = document.getElementById('loadButton');
   let gameContainer = document.getElementById('question-container');
   let imageContainer = document.getElementById('npc-image');
+  let form = '';
   let startYourAdventureButton = '';
 
 
   startButton.addEventListener('click', function(){
     gameContainer.innerHTML = `
+    <div id="player-info">
       <h1>Hello New Player, What do we call you?<h1>
       
-      <form> 
+      <form id="character-form"> 
       <label>'Sign Here'</label>
-      <input type="text" id="userName" placeholder="sign on the dotted line">
+      <input type="text" id="userName" name="name" placeholder="sign on the dotted line">
       
       <label for='classSelection'>Select Your Class </label>
-      <select id="classSelection">
+      <select name="role" id="classSelection">
       <option value="artist">Artist</option>
-      <option value="historian">Historian</option>
-      <option value="philosopher">Philosopher</option>
+      <option id="historian" value="historian">Historian</option>
+      <option  value="philosopher">Philosopher</option>
       </select>
       <input type="submit" id="submit" value="Start your Adventure">
-      ${renderChoices()};
-      <form>`;
+      <form>
+      <div>`;
     imageContainer.innerHTML = '<img src=img/traveler.jpeg>';
-    startYourAdventureButton = document.getElementById('submit');
+    form = document.getElementById('character-form')
+    startYourAdventureButton = document.getElementById('submit')
     startYourAdventureButton.addEventListener('click', function(event) {
       event.preventDefault();
-      console.log(event.target); 
-
+      renderQuestions();
+      
+      // form.addEventListener('click', function(event) {
+      //   // const name = event.target.name.value
+      //   let role = document.getElementsById('historian')
+      //   let roleValue = event.target.role.value
+      //   console.log(roleValue)
+    
     });
   });
-  
-
 });
 //   loadGame.addEventListener('click' function() {})
 
 
 // --------------------------------------------------------------------- Variables --------------------------------------------------------------------------------
 User.allUsers = [];
-// let startYourAdventureButton = document.getElementById('submit');
+let gameContainer = document.getElementById('question-container');
+
+let continueGame = '';
 
 // --------------------------------------------------------------------- Objects ----------------------------------------------------------------------------------
 
 /// Questions POJO (Plain-Old-Javascript-Object)
-let question = {
-}
+
 
 /// User Object
-function User(name, role) {
+function User(name, image) {
   this.name = name;
-  this.role = role;
-  this.lives = 3;
-  this.curentQuestion = '';
-}
+  this.image = image;
+};
+
+
 
 // --------------------------------------------------------------------- Functions --------------------------------------------------------------------------------
 
 
 
 //// Trying to create a function to take unput from character submit button and create a User and push to User.allUser[];
-function newCharacter(event) {
-  console.log(event.target);
-//   let name = event.target;
-//   let role = event.target;
-//   const newPlayer = new User(name,role);
-//   User.allUsers.push(newPlayer);
-}
-
-
+function newCharacter() {
+  let namevalue = document.getElementById(userName)
+  let name = namevalue.value;
+  console.log(name);
+  let role = event.target;
+const newPlayer = new User(name,role);
+User.allUsers.push(newPlayer);
+};
 
 
 
@@ -83,74 +90,148 @@ function newCharacter(event) {
 
 
 
-let story = {
-    currentQuestion: 'Question One',
-    questionOne: {
-        npc: 'The Mysterious Figure',
-        story: 'this is question 1',
+let game = {
+  // ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
+    path: 'Q1',
+    Q1: {
+      npc: 'this is the name of the npc',
+      story: 'this is where the npc conveys their story',
+      question: 'Insert Question here',
         choices: [
             {
-                response: '1a',
+                response: 'This is Question 1: fjhshdfjsdfjdsjfhjdshfjdsmm',
+                path: 'Q2'
               },
             {
-                response: '1b',
+                response: 'This is Question 2: jklahfahfahsklfhakslhflahsl',
+                path: 'Q2'
               },
             {
-                response: '1c',
+                response: 'This is question 3: wifjalhflasdhfjhadsjfhjdshf',
+                path: 'Q3'
               },
             {
-                response: '1d',
+                response: 'This is question 4: jhfjkqewhfkewgkfgsdjkgfdshk',
+                path: 'Q3'
               },
-
-                // destination: 'questionTwo',
         ]
     }, 
-    questionTwo: {
-        npc: 'The Bartender',
-        story: 'this is question 2',
+
+    // ----------------------------------------------------- Chapter 2 ---------------------------------------------------------------------
+    jail: {},
+    Q2: {
+        npc: 'this is the name of the npc',
+        story: 'this is where the npc conveys their story',
+        question: 'Insert Question here',
         choices: [
             {
                 response: '2a',
-                response: '2b',
-                response: '2c',
-                response: '2d',
-                destination: 'questionThree',
+                path: 'Q3',
             },
-        ]
-    },
-    questionThree: {
-        npc: 'The Criminal',
-        story: 'this is question 3',
-        choices: [
             {
-                response: '3a',
-                response: '3b',
-                response: '3c',
-                response: '3d',
-                destination: 'questionFour',
+                response: '2b',
+                path: 'Q3',
+            },
+            {
+                response: '2c',
+                path: 'Q1',
+            },
+            {
+                response: '2d',
+                path: 'Q1',
             },
         ]
     },
-}
 
+    // ------------------------------------------------------- Chapter 3 -------------------------------------------------------------------
+    Q3: {
+        npc: 'this is the name of the npc',
+        story: 'this is where the npc conveys their story',
+        question: 'Insert Question here',
+        choices: [
+          {
+              response: '3a',
+              path: '',
+          },
+          {
+              response: '3b',
+              path: '',
+          },
+          {
+              response: '3c',
+              path: '',
+          },
+          {
+              response: '3d',
+              path: '',
+          },
+      ]
+  },
+};
+
+    // ------------------------------------------------------- Chapter 4 -------------------------------------------------------------------
+
+
+    // ------------------------------------------------------- Chapter 5 -------------------------------------------------------------------
+
+
+    // ------------------------------------------------------- Chapter 6 -------------------------------------------------------------------
+
+
+    // ------------------------------------------------------- Chapter 7 -------------------------------------------------------------------
+    
+
+//Add an ID for <div> above questions. 
 function renderQuestions() {
-  gameContainer.innerHTML = " ";
-}
+  gameContainer.innerHTML = `
+  <div id="questions-container">
+  <h1>${game[game.path].npc} <h1> 
+  <p>${game[game.path].story} <p>
+  <div> 
+  <p>${game[game.path].question}<p>
+  ${renderChoices()}
+  <input type="submit" id="continue" value="Continue...">
+  <div>
+  <div>
+  `
+
+  let continueGame = document.getElementById('continue');
+  continueGame.addEventListener('click', function(event) {
+    event.preventDefault();
+    path()
+    renderQuestions();
+  })
+};
 
 function renderChoices() {
   let response = " ";
-  for(let i = 0; i < story.questionOne.choices.length; i++) {
+  for(let i = 0; i < game[game.path].choices.length; i++) {
     response += `
-    <div>
-    <input id = "radio${i}" type = "radio" name = "response"/>
-    <label for "radio${i}">${story.questionOne.choices[i].response}</label>
+    <div id="choice-container">
+    <input data-path = ${game[game.path].choices[i].path} id = "radio${i}" type = "radio" name = "response"/>
+    <label for "radio${i}">${game[game.path].choices[i].response}</label>
     </div>
-    `
+    `;
+
+
   }
   return response;
 }
 
-function startGame(event) {
-  console.log(event.target)
+
+function path() {
+  let path = document.querySelectorAll('input[type="radio"]')
+  for (let i = 0; i < path.length; i++) {
+    if (path[i].checked)
+    game.path = path[i].getAttribute('data-path');
+    console.log(game.path)
+  }
 }
+
+
+
+
+// function startGame(event) {
+//   console.log(event.target);
+// }
 

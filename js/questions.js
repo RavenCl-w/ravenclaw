@@ -22,7 +22,7 @@ function initialLoad() {
 
       <label id="role">Select Your Class</label>
       <select name="role" id="classSelection">
-      <option value="img/traveler.jpeg">Artist</option>
+      <option value="'img/traveler.jpeg'">Artist</option>
       <option value="historian">Historian</option>
       <option value="philosopher">Philosopher</option>
       </select>
@@ -43,6 +43,10 @@ function initialLoad() {
 
 
 // --------------------------------------------------------------------- Variables-----------------------------------------------------------
+{/* <img id="displayImg" src="">
+<h1 id="displayName"></h1> */}
+
+
 
 let continueGame = '';
 User.allUsers = [];
@@ -59,23 +63,38 @@ function User(name, image) {
 //// Trying to create a function to take unput from character submit button and create a User and push to User.allUser[];
 function getDataForm(event) {
   event.preventDefault();
-  let existingUser =
-
-
-  console.log(event.target)
   let name = event.target.nameField.value;
   let role = event.target.role.value;
   newCharacter(name,role)
+  // post to game container here
   renderQuestions();
 };
 
-///// Clean this up!!
+// Creates a new User & pushes this user the all users array
 function newCharacter(name,role) {
 const newPlayer = new User(name,role);
+newPlayer.renderUser();
 User.allUsers.push(newPlayer);
 };
 
+User.prototype.renderUser = function() {
+  // greab reference to username feild in html
+  let userName = document.getElementById('displayName')
+  console.log(userName)
+  // grab reference to image in html
+  let userRole = document.getElementById('displayImg').src
+  // Grab User information
+  
+  
+  // update the text content of each element in the field. 
+  userName.textContent = this.name
+  console.log(userName)
+  userRole.textContent = this.role
+  console.log(userRole)
 
+  //post to game container.
+
+};
 
 // --------------------------------------------------------------------- Listeners ----------------------------------------------------------
 
@@ -91,6 +110,7 @@ let game = {
       npc: 'Denial',
       story: 'You wake as though from a dream that feels to have lasted an eternity, yet any effort to recall the details beyond brief flashes of imagery leave your head spinning. Everything aches down to your very bones. A strange feeling, you think as you raise your hands to wipe the sleep from your eyes, for you do not believe yourself old enough to have aching bones.But for a moment your hands appear old and withered before returning to a youthful state. They are covered in blood. “So you lived,” an otherworldly voice speaks to you. It is neither loud nor soft but sounds right next to you despite the distance between you and the stump upon which they sit. They wear a thick cloak, the hood pulled up to conceal their face, meticulously peeling an apple with a dagger. “You almost had me worried.” When they turn to face you, you can nearly see the gleam in their eyes. As the wind changes, the direction of the light shifts, and you see it filter across their face.',
       question: 'You know this person. Not them as an individual, but you know their face. You know their deeds. You know why they are here. But that is all you know. You can not say how you ended up in this forest, if you were here to begin within or if you were brought. You do not even know your own name or whose blood stains your trembling hands. The figure approaches, extending a pale hand to offer you an apple. “Trust me, userName this is exactly what you deserve. Are you ready?”',
+      image: {//image src}
         choices: [
             {
                 response: 'Yes(this will take you to q2a)',
@@ -443,7 +463,7 @@ function renderQuestions() {
   <input type="submit" id="continue" value="Continue...">
   <div> 
   `
-
+// insert inner.HTML ' for the image of the specific path being callled' 
   let continueGame = document.getElementById('continue');
   continueGame.addEventListener('click', function(event) {
     event.preventDefault();

@@ -1,64 +1,51 @@
 'use strict';
 
-// --------------------------------------------------------------------- On Page-Load ----------------------------------------------------------------------------
+// --------------------------------------------------------------------- On Page-Load-------------------------------------------------------
 
-// On Page Load ('DOMContentLoaded') will create our 3 variables bellow and then load an eventlistener that awaits a 'click' on 'start game'. 
-document.addEventListener('DOMContentLoaded', function() {
+function initialLoad() {
   let startButton = document.getElementById('startButton');
-  let loadGame = document.getElementById('loadButton');
-  let gameContainer = document.getElementById('question-container');
+  let questionContainer = document.getElementById('question-container');
   let imageContainer = document.getElementById('npc-image');
-  let form = '';
-  let startYourAdventureButton = '';
+  
 
-
-  startButton.addEventListener('click', function(){
-    gameContainer.innerHTML = `
-    <div id="player-info">
+  startButton.addEventListener('click', function(event){
+    event.preventDefault();
+    questionContainer.innerHTML = `
+    <div class="wrapper">
       <h1>Hello New Player, What do we call you?<h1>
       
-      <form id="character-form"> 
-      <label>'Sign Here'</label>
-      <input type="text" id="userName" name="name" placeholder="sign on the dotted line">
+      <form id="form" onsubmit="return false"> 
       
-      <label for='classSelection'>Select Your Class </label>
+      <label id="nameField">'UserName'</label>
+      <input type="text" name="nameField" placeholder="UserName" required>
+      </label>
+
+      <label id="role">Select Your Class</label>
       <select name="role" id="classSelection">
       <option value="artist">Artist</option>
-      <option id="historian" value="historian">Historian</option>
-      <option  value="philosopher">Philosopher</option>
+      <option value="historian">Historian</option>
+      <option value="philosopher">Philosopher</option>
       </select>
-      <input type="submit" id="submit" value="Start your Adventure">
-      <form>
-      <div>`;
-    imageContainer.innerHTML = '<img src=img/traveler.jpeg>';
-    form = document.getElementById('character-form')
-    startYourAdventureButton = document.getElementById('submit')
-    startYourAdventureButton.addEventListener('click', function(event) {
-      event.preventDefault();
-      renderQuestions();
+      </label>
+
+      <button type="submit" id="submitButton"> Start Your Adventure</button>
+      </form>
+      <div>`;  
+
+    let form = document.querySelector('form');
+    imageContainer.innerHTML = '<img src=img/paintedPath.JPG>';
+    form.addEventListener('submit', getDataForm)
       
-      // form.addEventListener('click', function(event) {
-      //   // const name = event.target.name.value
-      //   let role = document.getElementsById('historian')
-      //   let roleValue = event.target.role.value
-      //   console.log(roleValue)
-    
-    });
+
   });
-});
-//   loadGame.addEventListener('click' function() {})
+};
 
 
-// --------------------------------------------------------------------- Variables --------------------------------------------------------------------------------
-User.allUsers = [];
-let gameContainer = document.getElementById('question-container');
+// --------------------------------------------------------------------- Variables-----------------------------------------------------------
 
 let continueGame = '';
-
-// --------------------------------------------------------------------- Objects ----------------------------------------------------------------------------------
-
-/// Questions POJO (Plain-Old-Javascript-Object)
-
+User.allUsers = [];
+// --------------------------------------------------------------------- Objects-------------------------------------------------------------
 
 /// User Object
 function User(name, image) {
@@ -66,13 +53,20 @@ function User(name, image) {
   this.image = image;
 };
 
-
-
-// --------------------------------------------------------------------- Functions --------------------------------------------------------------------------------
-
-
+// --------------------------------------------------------------------- Functions-----------------------------------------------------------
 
 //// Trying to create a function to take unput from character submit button and create a User and push to User.allUser[];
+function getDataForm(event) {
+  event.preventDefault();
+  console.log(event.target)
+  // let formData = new FormData(form[0]);
+
+  alert( event.target.nameField.value + event.target.role.value)
+
+  renderQuestions();
+};
+
+///// Clean this up!!
 function newCharacter() {
   let namevalue = document.getElementById(userName)
   let name = namevalue.value;
@@ -84,18 +78,19 @@ User.allUsers.push(newPlayer);
 
 
 
-// --------------------------------------------------------------------- Listeners --------------------------------------------------------------------------------
+// --------------------------------------------------------------------- Listeners ----------------------------------------------------------
 
-// --------------------------------------------------------------------- Function Calls ----------------------------------------------------------------------------
+// --------------------------------------------------------------------- Function Calls------------------------------------------------------
 
 
+
+// ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
 
 let game = {
-  // ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
     path: 'Q1',
     Q1: {
       npc: 'this is the name of the npc',
-      story: 'this is where the npc conveys their story',
+      story: 'this is where the npc conveys their ',
       question: 'Insert Question here',
         choices: [
             {
@@ -179,11 +174,11 @@ let game = {
 
 
     // ------------------------------------------------------- Chapter 7 -------------------------------------------------------------------
-    
-
+  
 //Add an ID for <div> above questions. 
 function renderQuestions() {
-  gameContainer.innerHTML = `
+  let questionContainer = document.getElementById('question-container');
+  questionContainer.innerHTML = `
   <div id="questions-container">
   <h1>${game[game.path].npc} <h1> 
   <p>${game[game.path].story} <p>
@@ -229,9 +224,6 @@ function path() {
 }
 
 
+    // ----------------------------------------------------Function Calls-------------------------------------------------------------------
 
-
-// function startGame(event) {
-//   console.log(event.target);
-// }
-
+initialLoad();

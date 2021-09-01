@@ -22,7 +22,7 @@ function initialLoad() {
 
       <label id="role">Select Your Class</label>
       <select name="role" id="classSelection">
-      <option value="artist">Artist</option>
+      <option value="img/traveler.jpeg">Artist</option>
       <option value="historian">Historian</option>
       <option value="philosopher">Philosopher</option>
       </select>
@@ -35,6 +35,7 @@ function initialLoad() {
     let form = document.querySelector('form');
     imageContainer.innerHTML = '<img src=img/paintedPath.JPG>';
     form.addEventListener('submit', getDataForm)
+
       
 
   });
@@ -58,20 +59,18 @@ function User(name, image) {
 //// Trying to create a function to take unput from character submit button and create a User and push to User.allUser[];
 function getDataForm(event) {
   event.preventDefault();
+  let existingUser =
+
+
   console.log(event.target)
-  // let formData = new FormData(form[0]);
-
-  alert( event.target.nameField.value + event.target.role.value)
-
+  let name = event.target.nameField.value;
+  let role = event.target.role.value;
+  newCharacter(name,role)
   renderQuestions();
 };
 
 ///// Clean this up!!
-function newCharacter() {
-  let namevalue = document.getElementById(userName)
-  let name = namevalue.value;
-  console.log(name);
-  let role = event.target;
+function newCharacter(name,role) {
 const newPlayer = new User(name,role);
 User.allUsers.push(newPlayer);
 };
@@ -435,14 +434,14 @@ function renderQuestions() {
   let questionContainer = document.getElementById('question-container');
   questionContainer.innerHTML = `
   <div id="questions-container">
-  <h1>${game[game.path].npc} <h1> 
-  <p>${game[game.path].story} <p>
-  <div> 
-  <p>${game[game.path].question}<p>
+  <h1 id="qcH1">${game[game.path].npc} <h1> 
+  <p id="qcStory">${game[game.path].story} <p>
+  <p id="qcQuestion">${game[game.path].question}<p>
+  <div id="choiceGroup">
   ${renderChoices()}
+  </div>
   <input type="submit" id="continue" value="Continue...">
-  <div>
-  <div>
+  <div> 
   `
 
   let continueGame = document.getElementById('continue');

@@ -259,7 +259,7 @@ let game = {
 // ------------------------------------------------------- Chapter 3- The Town--------------------------------------------------------------
     Q3: {
         npc: '',
-        story: 'Despite your protests, the hooded figure shoves the apple in your hands. When you look down, it\'s not longer an apple, but a book bearing your name on the cover. You look up and the scenery has changed. The forest is gone and you\'re standing in the middle of a town square. The figure points out a person and you realize it\'s a younger version of you. You watch as they argue with a shopkeeper and flinch knowing that the punch is coming. As you watch the blood pooling under your younger selfs head, the figure asks:',
+        story: 'Despite your protests, the hooded figure shoves the apple in your hands. When you look down, it\'s no longer an apple, but a book bearing your name on the cover. You look up and the scenery has changed. The forest is gone and you\'re standing in the middle of a town square. The figure points out a person and you realize it\'s a younger version of you. You watch as they argue with a shopkeeper and flinch knowing that the punch is coming. As you watch the blood pooling under your younger selfs head, the figure asks,',
         question: '"Looking back now, do you think this was deserved?"',
         image: './img/townriver.png',  
         choices: [
@@ -382,9 +382,9 @@ let game = {
 
       Q5: {
         npc: '',
-        story: 'The cloaked figure ushers you into a church. You know this church. You have been here before, and you see that version of yourself sitting in a pew. The memories are beginning to return the longer you are with this figure. You know what is coming. You remember what led you to this place before. You are beginning to understand the purpose behind this figure’s game.',
+        story: 'The cloaked figure ushers you into a church. You know this church. You have been here before, and you see that younger version of yourself sitting in a pew. The memories are beginning to return the longer you are with this figure. You know what is coming. You remember what led you to this place before. You are beginning to understand the purpose behind this figure’s game.',
         question: 'Do you still blame yourself?',
-        image: '',  
+        image: './img/churchresize.jpg',  
         choices: [
               {
                   response: 'It was never my fault.',
@@ -412,7 +412,7 @@ let game = {
         npc: '',
         story: 'The Figure remains silent for a moment. He almost seems disappointed.',
         question: 'Is that what you really think?',
-        image: '',
+        image: './img/churchresize.jpg',
         choices: [
             {
                 response: 'No...',
@@ -428,7 +428,7 @@ let game = {
         npc: '',
         story: 'The Figures eyes seem to shine and you swear you actually see him smile.',
         question: 'Then why didn\t you stop them?',
-        image: '',
+        image: './img/churchresize.jpg',
         choices: [
             {
                 response: 'I didn\'t know...',
@@ -444,7 +444,7 @@ let game = {
         npc: '',
         story: 'The figure sighs and shakes his head. He says, "The signs were there. If you weren\'t so self involved you would\'ve seen them."',
         question: 'How do you respond?',
-        image: '',
+        image: './img/churchresize.jpg',
         choices: [
             {
                 response: 'That isn\'t how it happened!',
@@ -460,7 +460,7 @@ let game = {
         npc: '',
         story: 'The figure nods solemnly and you know your former self is thinking the same. In time you\'ll come to peace with what transpired.',
         question: '',
-        image: '',
+        image: './img/churchresize.jpg',
         choices: [
             {
                 response: 'Continue on.',
@@ -475,7 +475,7 @@ let game = {
         npc: '',
         story: 'The figure appears angered. Raising his voice he says, "You\'ll never learn."',
         question: 'Try again?',
-        image: '',
+        image: './img/blackhood.jpg',
         choices: [
             {
                 response: 'Continue on...',
@@ -489,7 +489,7 @@ let game = {
         npc: '',
         story: 'You follow the figure out of the church, but the moment you step outside, you\'re in your former home. You see your younger self at the table, but they do not notice you know. They are preoccupied with their drink. This is something you remember, but you cannot say how many drinks you had, or what other substances you consumed. Even without looking in the book, you could easily identify what page this event takes place on.',
         question: 'Did you ever expect it to get to this point?',
-        image: './img/forest house.jpg',  
+        image: './img/kitchen.jpg',  
         choices: [
               {
                   response: 'No. Why didn\'t anyone stop me?',
@@ -516,7 +516,7 @@ Q8A: {
     npc: '',
     story: 'The Figure scoffs and shakes his head yet again as if he can\'t believe nothing has changed.He says, "you act as though the universe had some grand plan, but life doesn\'t work that way."',
     question: 'What makes you so important?',
-    image: './img/forest house.jpg',
+    image: './img/kitchen.jpg',
     choices: [
         {
             response: 'Aren\'t we all important?',
@@ -532,7 +532,7 @@ Q8B: {
     npc: '',
     story: 'The Figure replies, "Anything is with the wrong motivations."',
     question: 'Do you regret what happened up to this point?',
-    image: './img/forest house.jpg',
+    image: './img/kitchen.jpg',
     choices: [
         {
             response: 'Absolutely.',
@@ -548,7 +548,7 @@ Q8C: {
     npc: '',
     story: '"How pitiful," The Figure replies. "You truly are wasted potential.',
     question: 'Do you have any regrets?',
-    image: './img/forest house.jpg',
+    image: './img/kitchen.jpg',
     choices: [
         {
             response: 'Yes.',
@@ -566,7 +566,7 @@ GameOver3: {
     npc: '',
     story: 'Clearly we have more work to do. Let\'s try this again.',
     question: '',
-    image: '',
+    image: './img/blackhood.jpg',
     choices: [
         {
             response: 'Continue?',
@@ -627,7 +627,7 @@ Q9: {
     npc: 'Game Over',
     story: 'Cleary you\'ve learned nothing. Yes we\'ll try again',
     question: '',
-    image: '',  
+    image: './img/blackhood.jpg',  
     choices: [
           {
               response: 'Try again...',

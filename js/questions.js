@@ -136,7 +136,7 @@ function path() {
 
 // Renders existing user if there is storage data
 User.prototype.renderExistingUser = function(nameElementId,roleElementId) {
-    nameElementId.textContent = "Welcome back " + this.name + ", " +  " Its lovely to see you again...." + " would you like to continue?"
+    nameElementId.textContent = "Welcome back " + this.name + ", " +  " Its lovely to see you again..." + " Would you like to continue?"
     roleElementId.textContent = "Click New Game to create a new character or Resume to continue your adventure."
   };
 // Adjusts the intial load text if a user is returning to a page.
@@ -150,7 +150,7 @@ User.prototype.existingInitialLoad = function() {
 // Save user data to local storage
 function storage() {
   const storedUsers = JSON.stringify(User.allUsers)
-  localStorage.setItem( 'users', storedUsers);
+  localStorage.setItem('users', storedUsers);
 
 }
 // retrieves users from local storage -- checks if there is data in local storage and renders the page with the user data -- if no data is in local storage it will start the game as a fresh webpage.
@@ -211,7 +211,7 @@ let game = {
     // ----------------------------------------------------- Chapter 2- Anger ---------------------------------------------------------------------
     Q2A: {
         npc: '',
-        story: 'The figure seems to frown and takes a step back. “That doesn’t sound like you at all, Username. You must have hit your head harder than I thought during the journey.”',
+        story: 'The figure seems to frown and takes a step back. “That doesn’t sound like you at all. You must have hit your head harder than I thought during the journey.”',
         question: 'Did you really expect things to be different this time?',
         image: './img/greenMossPath.jpg',
         choices: [
@@ -286,7 +286,7 @@ let game = {
     // ------------------------------------------------------- Chapter 4- The Town pt1------------------------------------------------------
     Q4A: {
         npc: '',
-        story: 'The figure pauses and merely shrugs. "If you haven\t figured it out yet, you will by the time we\re done.',
+        story: 'The figure pauses and merely shrugs. "If you haven\'t figured it out yet, you will by the time we\'re done.',
         question: '"Are you alright with that?"',
         image: './img/townriver.png',
         choices: [
@@ -337,10 +337,10 @@ let game = {
 
     // ------------------------------------------------------- Chapter 4- The Town pt2-------------------------------------------------------
     Q4D: {
-        npc: './img/townriver.png',
+        npc: '',
         story: 'The Figure merely laughs and strangely your punch doesn\'t even make contact.',
         question: 'Are you done with your temper tantrum?',
-        image: '',
+        image: './img/townriver.png',
         choices: [
             {
                 response: 'You\'re not gonna win me over with this.',
@@ -611,7 +611,7 @@ Q9: {
   }, 
   Q9B: {
     npc: '',
-    story: 'Good. Even living a life full of regrets is something you must accept in the end. You\'ve come far old friend.',
+    story: 'Good. Even living a life full of regrets is something you must accept in the end. You\'ve come far, old friend.',
     question: 'Learn your fate?',
     image: './img/forest-glow.jpg',  
     choices: [
@@ -627,7 +627,7 @@ Q9: {
     npc: 'Game Over',
     story: 'Cleary you\'ve learned nothing. Yes we\'ll try again',
     question: '',
-    image: './img/blackhood.jpg',  
+    image: './img/turning-figure.jpeg',  
     choices: [
           {
               response: 'Try again...',
@@ -641,7 +641,7 @@ Q10A: {
     npc: '',
     story: 'He leaves you in the forest to contemplate your choices, with the promise that he is only a call away. When you have fully accepted the weight of your decision, you are free to be released.',
     question: 'The End. Return home?',
-    image: './img/bridge.jpg',  
+    image: './img/darkforest.jpg',  
     choices: [
           {
               response: 'Return Home.',

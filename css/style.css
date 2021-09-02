@@ -6,7 +6,7 @@ body {
     justify-content: space-around;
 }
 header {
-    background-color: gray;
+    background-color: rgb(82, 81, 81);
     display: flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -23,6 +23,17 @@ header {
     width: 1200px;
     /* max-width: 2000px; */
     align-self: center;
+    font-family: 'WindSong', cursive;
+    font-size: 32pt;
+    opacity: .7;
+}
+
+header h1 {
+    transition: transform .5s;
+
+}
+header h1:hover {
+    transform: scale(1.1);
 }
 main {
     margin: 30px auto;
@@ -33,7 +44,7 @@ main {
 }
 
 footer {
-    background-color: gray;
+    background-color: rgb(82, 81, 81);
     display: flex;
     flex-direction: row;
     justify-content: space-around;  
@@ -49,6 +60,19 @@ footer {
     /* max-width: 2000px; */
     width: 1200px;
     align-self: center;
+    opacity: .7;
+    /* text-decoration: none; */
+}
+
+a {
+    color: black;
+    text-decoration: none;
+
+}
+
+a:hover {
+    transition: 900ms;
+    color: whitesmoke;
 
 }
 
@@ -184,7 +208,11 @@ footer {
     background-color: maroon;
     color: white;
     font-size: 20px;
+    transition: transform .5s;
 
+}
+#button-container button:hover{
+    transform: scale(1.1);
 }
 
 .wrapper {

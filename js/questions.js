@@ -158,42 +158,38 @@ function getStorage() {
 
 // ------------------------------------------------------- Start of Story ------------------------------------------------------------------
 
-// ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
-
 let game = {
+  // ------------------------------------------------------- Chapter 1- Denial ----------------------------------------------------------------------
     path: 'Q1',
     Q1: {
-      npc: 'Denial',
+      npc: '',
       story: 'You wake as though from a dream that feels to have lasted an eternity, yet any effort to recall the details beyond brief flashes of imagery leave your head spinning. Everything aches down to your very bones. A strange feeling, you think as you raise your hands to wipe the sleep from your eyes, for you do not believe yourself old enough to have aching bones.But for a moment your hands appear old and withered before returning to a youthful state. They are covered in blood. “So you lived,” an otherworldly voice speaks to you. It is neither loud nor soft but sounds right next to you despite the distance between you and the stump upon which they sit. They wear a thick cloak, the hood pulled up to conceal their face, meticulously peeling an apple with a dagger. “You almost had me worried.” When they turn to face you, you can nearly see the gleam in their eyes. As the wind changes, the direction of the light shifts, and you see it filter across their face.',
       question: 'You know this person. Not them as an individual, but you know their face. You know their deeds. You know why they are here. But that is all you know. You can not say how you ended up in this forest, if you were here to begin within or if you were brought. You do not even know your own name or whose blood stains your trembling hands. The figure approaches, extending a pale hand to offer you an apple. “Trust me, userName this is exactly what you deserve. Are you ready?”',
-      image: 'img/traveler.jpeg',
         choices: [
             {
-                response: 'Yes(this will take you to q2a)',
+                response: 'Yes',
                 path: 'Q2A'
               },
             {
-                response: 'I don\'t understand (this will take you to q2a) ',
+                response: 'I don\'t understand.',
                 path: 'Q2A'
               },
             {
-                response: 'No.(this will take you to question q2b)',
+                response: 'No.',
                 path: 'Q2B'
               },
             {
-                response: 'I don\'t know you. (this will take you ro q2b)',
+                response: 'I don\'t know you.',
                 path: 'Q2B'
               },
         ]
     }, 
 
-    // ----------------------------------------------------- Chapter 2 ---------------------------------------------------------------------
+    // ----------------------------------------------------- Chapter 2- Anger ---------------------------------------------------------------------
     Q2A: {
-        npc: 'Anger2a',
+        npc: '',
         story: 'The figure seems to frown and takes a step back. “That doesn’t sound like you at all, Username. You must have hit your head harder than I thought during the journey.”',
         question: 'Did you really expect things to be different this time?',
-        image: '' ,
-
         choices: [
             {
                 response: 'I don\'t know what you mean...',
@@ -206,7 +202,7 @@ let game = {
         ]
     },
     Q2B: {
-        npc: 'Anger2b',
+        npc: '',
         story: 'The figure seems to smile beneath their hood and extends the apple further, “How predictable. You said that last time.',
         question: 'Are you beginning to remember?',
         choices: [
@@ -221,9 +217,9 @@ let game = {
         ]
     },
 
-    // ------------------------------------------------------- Game Over -------------------------------------------------------------------
+    // ------------------------------------------------------- Game Over 1 -------------------------------------------------------------------
     gameOver1: {
-        npc: 'Game Over',
+        npc: '',
         story: 'You refuse to play this game, but as a result you are stuck in this forest and cannot find your way out...',
         question: 'Try your luck again?',
         choices: [
@@ -234,9 +230,9 @@ let game = {
         ]
     },
 
-// ------------------------------------------------------- Chapter 3 -------------------------------------------------------------------
+// ------------------------------------------------------- Chapter 3- The Town -------------------------------------------------------------------
     Q3: {
-        npc: 'this is the name of the npc',
+        npc: '',
         story: 'Despite your protests, the hooded figure shoves the apple in your hands. When you look down, it\'s not longer an apple, but a book bearing your name on the cover. You look up and the scenery has changed. The forest is gone and you\'re standing in the middle of a town square. The figure points out a person and you realize it\'s a younger version of you. You watch as they argue with a shopkeeper and flinch knowing that the punch is coming. As you watch the blood pooling under your younger selfs head, the figure asks:',
         question: '"Looking back now, do you think this was deserved?"',
           choices: [
@@ -260,252 +256,362 @@ let game = {
       }, 
     
 
-    // ------------------------------------------------------- Chapter 4 -------------------------------------------------------------------
+    // ------------------------------------------------------- Chapter 4- The Town pt1 -------------------------------------------------------------------
     Q4A: {
-        npc: 'this is the name of the npc',
+        npc: '',
         story: 'The figure pauses and merely shrugs. "If you haven\t figured it out yet, you will by the time we\re done.',
         question: '"Are you alright with that?"',
         choices: [
             {
                 response: 'I suppose I have to be at this point.',
-                path: 'Q4Pt2',
+                path: 'Q4B',
             },
             {
                 response: '*Take a swing at the figure*',
-                path: 'Q4Pt2',
+                path: 'Q4D',
             },
         ]
     },
     Q4B: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 4 path b',
-        question: 'Insert Question here',
+        npc: '',
+        story: 'Looks like you\'ve shown some growth this time around.',
+        question: '"Let\'s continue."',
         choices: [
             {
-                response: '4c',
+                response: 'It doesn\'t look like I seem to have a choice',
                 path: 'Q5',
             },
         ]
     },
     Q4C: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 4 path b',
-        question: 'Insert Question here',
+        npc: '',
+        story: 'The Figure chuckles lightly and replies, "You would say that."',
+        question: 'Could there have been a better way?',
         choices: [
             {
-                response: '4c',
-                path: 'Q5',
+                response: 'Yes there could\'ve been.',
+                path: 'Q4F',
+            },
+            {
+                response: 'No it was the only way',
+                path: 'Q4F',
+            },
+            {
+                response: 'I suppose it\'s possible.',
+                path: 'Q4F',
             },
         ]
     },
 
     
 
-    // ------------------------------------------------------- Chapter 4 pt2 ---------------------------------------------------------------
-    Q4Pt2: {
-        npc: 'this is the name of the npc',
-        story: 'The figure pauses and merely shrugs. "If you haven\t figured it out yet, you will by the time we\re done.',
-        question: '"Are you alright with that?"',
+    // ------------------------------------------------------- Chapter 4- The Town pt2 -------------------------------------------------------------------
+    Q4D: {
+        npc: '',
+        story: 'The Figure merely laughs and strangely your punch doesn\'t even make contact.',
+        question: 'Are you done with your temper tantrum?',
         choices: [
             {
-                response: 'I suppose I have to be at this point.',
-                path: 'Q5',
+                response: 'You\'re not gonna win me over with this.',
+                path: 'Q4E',
             },
             {
-                response: '*Take a swing at the figure*',
+                response: 'For now...',
                 path: 'Q5',
             },
         ]
     },
-    Q4B: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 4 path b',
-        question: 'Insert Question here',
+    Q4E: {
+        npc: '',
+        story: 'The figure stands by as you pace, blowing off steam, allowing you to calm down. After a few minutes, the figure continues on.',
+        question: '',
         choices: [
             {
-                response: '4c',
-                path: 'Q5',
-            },
-            {
-                response: '4d',
+                response: 'Follow the Figure.',
                 path: 'Q5',
             },
         ]
     },
 
-      // ------------------------------------------------------- Chapter 5 ----------------------------------------------------------------
+    Q4F: {
+        npc: '',
+        story: 'The figure no longer seems to be listening and walks away. The only way to get answers is to play his game, so you follow after him.',
+        question: '',
+        choices: [
+            {
+                response: 'Continue on...',
+                path: 'Q5',
+            },
+        ]
+    },
+
+      // ------------------------------------------------------- Chapter 5- The Church -------------------------------------------------------------------
 
       Q5: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 5',
-        question: 'this is the fifth question. no matter what chapter 4 path you went to, you\'ll come here',
+        npc: '',
+        story: 'The cloaked figure ushers you into a church. You know this church. You have been here before, and you see that version of yourself sitting in a pew. The memories are beginning to return the longer you are with this figure. You know what is coming. You remember what led you to this place before. You are beginning to understand the purpose behind this figure’s game.',
+        question: 'Do you still blame yourself?',
           choices: [
               {
-                  response: '5a: ',
+                  response: 'It was never my fault.',
                   path: 'Q6A'
                 },
               {
-                  response: '5b: ',
+                  response: 'I don\'t think anyone was to blame.',
                   path: 'Q6A'
                 },
               {
-                  response: '5c:',
+                  response: 'Yes, I think about it all the time.',
                   path: 'Q6B'
                 },
               {
-                  response: '5d: ',
+                  response: 'I could\'ve prevented it.',
                   path: 'Q6B'
                 },
           ]
       }, 
   
 
-    // ------------------------------------------------------- Chapter 6 -------------------------------------------------------------------
+    // -----------------------------------------------------Chapter 6- The Church pt 2-------------------------------------------------------------------
 
     Q6A: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 6 path a',
-        question: 'Insert Question here',
+        npc: '',
+        story: 'The Figure remains silent for a moment. He almost seems disappointed.',
+        question: 'Is that what you really think?',
         choices: [
             {
-                response: '6a',
+                response: 'No...',
                 path: 'Q7',
             },
             {
-                response: '6b',
+                response: '...No',
                 path: 'Q7',
             },
         ]
     },
     Q6B: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 6 path b',
-        question: 'Insert Question here',
+        npc: '',
+        story: 'The Figures eyes seem to shine and you swear you actually see him smile.',
+        question: 'Then why didn\t you stop them?',
         choices: [
             {
-                response: '6c',
-                path: 'Q7',
+                response: 'I didn\'t know...',
+                path: 'Q6C',
             },
             {
-                response: '6d',
+                response: 'They didn\'t ask for help!',
+                path: 'Q6C',
+            },
+        ]
+    },
+    Q6C: {
+        npc: '',
+        story: 'The figure sighs and shakes his head. He says, "The signs were there. If you weren\'t so self involved you would\'ve seen them."',
+        question: 'How do you respond?',
+        choices: [
+            {
+                response: 'That isn\'t how it happened!',
+                path: 'GameOver2',
+            },
+            {
+                response: 'You\'re right. I should\'ve been paying more attention.',
+                path: 'Q6D',
+            },
+        ]
+    },
+    Q6D: {
+        npc: '',
+        story: 'The figure nods solemnly and you know your former self is thinking the same. In time you\'ll come to peace with what transpired.',
+        question: '',
+        choices: [
+            {
+                response: 'Continue on.',
                 path: 'Q7',
             },
         ]
     },
 
-    
-    // ------------------------------------------------------- Chapter 7 -------------------------------------------------------------------
+    // ------------------------------------------------------- Game Over 2 -------------------------------------------------------------------
+
+    GameOver2: {
+        npc: '',
+        story: 'The figure appears angered. Raising his voice he says, "You\'ll never learn."',
+        question: 'Try again?',
+        choices: [
+            {
+                response: 'Continue on...',
+                path: 'Q1',
+            },
+        ]
+    },
+    // ------------------------------------------------------- Chapter 7 - Home -------------------------------------------------------------------
 
     Q7: {
-        npc: 'this is the name of the npc',
-        story: 'this is the story for chapter 7',
-        question: 'this is the seventh question. no matter what chapter 6 path you went to, you\'ll come here',
+        npc: '',
+        story: 'You follow the figure out of the church, but the moment you step outside, you\'re in your former home. You see your younger self at the table, but they do not notice you know. They are preoccupied with their drink. This is something you remember, but you cannot say how many drinks you had, or what other substances you consumed. Even without looking in the book, you could easily identify what page this event takes place on.',
+        question: 'Did you ever expect it to get to this point?',
           choices: [
               {
-                  response: '7a: ',
+                  response: 'No. Why didn\'t anyone stop me?',
                   path: 'Q8A'
                 },
               {
-                  response: '7b: ',
+                  response: 'It was already out of my hands.',
                   path: 'Q8A'
                 },
               {
-                  response: '7c:',
+                  response: 'I should\'ve realized it was possible.',
                   path: 'Q8B'
                 },
               {
-                  response: '7d: ',
-                  path: 'Q8B'
+                  response: 'I wanted it to get to this point.',
+                  path: 'Q8C'
                 },
           ]
       }, 
 
-// ------------------------------------------------------- Chapter 8 -------------------------------------------------------------------
+// ------------------------------------------------------- Chapter 8- Home pt 2 -------------------------------------------------------------------
 
 Q8A: {
-    npc: 'this is the name of the npc',
-    story: 'this is the story for chapter 8 path a',
-    question: 'Insert Question here',
+    npc: '',
+    story: 'The Figure scoffs and shakes his head yet again as if he can\'t believe nothing has changed.He says, "you act as though the universe had some grand plan, but life doesn\'t work that way."',
+    question: 'What makes you so important?',
     choices: [
         {
-            response: '8a',
+            response: 'Aren\'t we all important?',
             path: 'Q9',
         },
         {
-            response: '8b',
+            response: 'I\'m not. No one is.',
             path: 'Q9',
         },
     ]
 },
 Q8B: {
-    npc: 'this is the name of the npc',
-    story: 'this is the story for chapter 8 path b',
-    question: 'Insert Question here',
+    npc: '',
+    story: 'The Figure replies, "Anything is with the wrong motivations."',
+    question: 'Do you regret what happened up to this point?',
     choices: [
         {
-            response: '8c',
+            response: 'Absolutely.',
             path: 'Q9',
         },
         {
-            response: '8d',
+            response: 'Absolutely not.',
+            path: 'GameOver3',
+        },
+    ]
+},
+Q8C: {
+    npc: '',
+    story: '"How pitiful," The Figure replies. "You truly are wasted potential.',
+    question: 'Do you have any regrets?',
+    choices: [
+        {
+            response: 'Yes.',
+            path: 'Q9',
+        },
+        {
+            response: 'No.',
             path: 'Q9',
         },
     ]
 },
 
-// ------------------------------------------------------- Chapter 9 -------------------------------------------------------------------
+// ------------------------------------------------------- Game Over 3 -------------------------------------------------------------------
+GameOver3: {
+    npc: '',
+    story: 'Clearly we have more work to do. Let\'s try this again.',
+    question: '',
+    choices: [
+        {
+            response: 'Continue?',
+            path: 'Q1',
+        },
+    ]
+},
+
+// ------------------------------------------------------- Chapter 9 - Acceptance -------------------------------------------------------------------
 
 Q9: {
-    npc: 'this is the name of the npc',
-    story: 'this is the story for chapter 9',
-    question: 'this is the ninth question. no matter what chapter 8 path you went to, you\'ll come here',
+    npc: '',
+    story: 'It\'s at this point that your younger self finally notices your presence. More specifically, the cloaked figure beside you. They become distraught as if they know what\'s coming next. You turn away not wanting to see, not wanting to hear, not wanting to play this game anymore. Your heart pounds in your ears and the moment you blink, you are back in the forest. The figure holds out another apple, "I\'m sorry you had to see that."',
+    question: 'Would you have done it any differently?',
       choices: [
           {
-              response: '9a: ',
-              path: 'Q10'
+              response: 'Yes I would.',
+              path: 'Q9A'
             },
           {
-              response: '9b: ',
-              path: 'Q10'
+              response: 'No I wouldn\'t.',
+              path: 'Q9B'
             },
+            {
+                response: 'Yes can I try again?',
+                path: 'GameOver4'
+              },
+      ]
+  }, 
+  Q9A: {
+    npc: '',
+    story: 'Alas, life doesn\'t work that way. You still have some improvements to make, but you\'ve come this far. I think you\'ve suffered enough.',
+    question: 'learn your fate?',
+      choices: [
           {
-              response: '9c:',
-              path: 'Q10'
-            },
+              response: 'Yes.',
+              path: 'Q10A'
+            },   
+      ]
+  }, 
+  Q9B: {
+    npc: '',
+    story: 'Good. Even living a life full of regrets is something you must accept in the end. You\'ve come far old friend.',
+    question: 'Learn your fate?',
+      choices: [
           {
-              response: '9d: ',
+              response: 'Yes.',
               path: 'Q10B'
+            },   
+      ]
+  }, 
+  
+ // ------------------------------------------------------- Game Over 4 ------------------------------------------------------------------- 
+ GameOver4: {
+    npc: 'Game Over',
+    story: 'Cleary you\'ve learned nothing. Yes we\'ll try again',
+    question: '',
+      choices: [
+          {
+              response: 'Try again...',
+              path: 'Q1'
+            }, 
+      ]
+  },
+// ------------------------------------------------------- Chapter 10 - Fate -------------------------------------------------------------------
+
+Q10A: {
+    npc: '',
+    story: 'He leaves you in the forest to contemplate your choices, with the promise that he is only a call away. When you have fully accepted the weight of your decision, you are free to be released.',
+    question: 'The End. Return home?',
+      choices: [
+          {
+              response: 'Return Home.',
+              path: 'Q1'
             },
       ]
   }, 
-
-
-// ------------------------------------------------------- Chapter 10 -------------------------------------------------------------------
-
-Q10: {
-    npc: 'this is the name of the npc',
-    story: 'this is the story for chapter 10. should we wrap it up here? if so, there will be no more questions, just the final story',
-    question: 'might not need a question for this part. but let\'s talk',
-    choices: [
-      {
-          response: '10a',
-          path: 'Q10A',
-      },
-      {
-          response: '10b',
-          path: 'Q10A',
-      },
-      {
-          response: '10c',
-          path: 'Q10B',
-      },
-      {
-          response: '10d',
-          path: 'Q10C',
-      },
-  ]
-},
-};
+  Q10B: {
+    npc: '',
+    story: 'You have acknowledged and accepted the wrongs committed in your life. You are aware there is no going back and a life with regrets is nothing to fear. He releases you from this place.',
+    question: '',
+      choices: [
+          {
+              response: 'The End. return home?',
+              path: 'Q1'
+            },
+      ]
+  },
+}; 
   
     // ----------------------------------------------------Function Calls-------------------------------------------------------------------
 

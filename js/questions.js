@@ -168,6 +168,7 @@ function getStorage() {
    const existingUser = (User.allUsers[User.allUsers.length -1])
    existingUser.existingInitialLoad()
    loadButton.addEventListener('click', function(){
+       existingUser.renderUser('displayName','displayImg');
        renderQuestions();})
     startButton.addEventListener('click', function(){
            newInitialLoad();}) 

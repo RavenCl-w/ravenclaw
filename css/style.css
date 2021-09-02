@@ -10,7 +10,9 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;  
-    font-size: 26px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: gold;
     margin: 0 ;
     height: 40px;
     border-radius: 25px;

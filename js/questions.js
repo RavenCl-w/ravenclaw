@@ -22,7 +22,7 @@ function initialLoad() {
 
       <label id="role">Select Your Class</label>
       <select name="role" id="classSelection">
-      <option value="'img/traveler.jpeg'">Artist</option>
+      <option value="img/traveler.jpeg">Artist</option>
       <option value="historian">Historian</option>
       <option value="philosopher">Philosopher</option>
       </select>
@@ -35,21 +35,12 @@ function initialLoad() {
     let form = document.querySelector('form');
     imageContainer.innerHTML = '<img src=img/paintedPath.JPG>';
     form.addEventListener('submit', getDataForm)
-
-      
-
   });
 };
 
 
 // --------------------------------------------------------------------- Variables-----------------------------------------------------------
-{/* <img id="displayImg" src="">
-<h1 id="displayName"></h1> */}
 
-
-
-let continueGame = '';
-User.allUsers = [];
 // --------------------------------------------------------------------- Objects-------------------------------------------------------------
 
 /// User Object
@@ -58,51 +49,116 @@ function User(name, image) {
   this.image = image;
 };
 
+User.allUsers = [];
 // --------------------------------------------------------------------- Functions-----------------------------------------------------------
 
-//// Trying to create a function to take unput from character submit button and create a User and push to User.allUser[];
+// Form Submit Handler Function; Grabs Values -> Creates new Character -> Continues to first question.
 function getDataForm(event) {
   event.preventDefault();
   let name = event.target.nameField.value;
   let role = event.target.role.value;
   newCharacter(name,role)
-  // post to game container here
+  storage();
+  console.log(User.allUsers)
   renderQuestions();
 };
 
-// Creates a new User & pushes this user the all users array
+// Creates a new User & pushes this user to allUsers array
 function newCharacter(name,role) {
 const newPlayer = new User(name,role);
 newPlayer.renderUser();
 User.allUsers.push(newPlayer);
 };
 
+// Render userNAme and Role to the GameContainer
 User.prototype.renderUser = function() {
-  // greab reference to username feild in html
+  // grab reference to username feild in html
   let userName = document.getElementById('displayName')
-  console.log(userName)
   // grab reference to image in html
-  let userRole = document.getElementById('displayImg').src
-  // Grab User information
-  
-  
+  let userRole = document.getElementById('displayImg')
   // update the text content of each element in the field. 
   userName.textContent = this.name
-  console.log(userName)
-  userRole.textContent = this.role
-  console.log(userRole)
-
-  //post to game container.
-
+  userRole.src = this.image
 };
 
-// --------------------------------------------------------------------- Listeners ----------------------------------------------------------
+// function to render our question, image to the page; update the path() and render the next question
+function renderQuestions() {
+  let questionContainer = document.getElementById('question-container');
+  let imageContainer = document.getElementById('npc-image');
 
-// --------------------------------------------------------------------- Function Calls------------------------------------------------------
+  //Renders nps, story, question and choices to the page
+  questionContainer.innerHTML = `
+  <div id="questions-container">
+  <h1 id="qcH1">${game[game.path].npc} <h1> 
+  <p id="qcStory">${game[game.path].story} <p>
+  <p id="qcQuestion">${game[game.path].question}<p>
+  <div id="choiceGroup">
+  ${renderChoices()}
+  </div>
+  <input type="submit" id="continue" value="Continue...">
+  <div> 
+  `
+  // Sets Image container to a specific image based
+  if (game[game.path].image === '') {
+  imageContainer.innerHTML = `<img src=img/greenMossPath.jpg>`
+  } else {
+    imageContainer.innerHTML = `<img src= ${game[game.path].image} >`
+  }
+
+  let continueGame = document.getElementById('continue');
+  continueGame.addEventListener('click', function(event) {
+    event.preventDefault();
+    path()
+    renderQuestions();
+  })
+};
+
+// Renders Choices for each question onto the page
+function renderChoices() {
+  let response = " ";
+  for(let i = 0; i < game[game.path].choices.length; i++) {
+    response += `
+    <div id="choice-container">
+    <input data-path = ${game[game.path].choices[i].path} id = "radio${i}" type = "radio" name = "response"/>
+    <label for "radio${i}">${game[game.path].choices[i].response}</label>
+    </div>
+    `;
+  }
+  return response;
+}
+
+// Updates the path for the game
+function path() {
+  let path = document.querySelectorAll('input[type="radio"]')
+  for (let i = 0; i < path.length; i++) {
+    if (path[i].checked)
+    game.path = path[i].getAttribute('data-path');
+    console.log(game.path)
+  }
+}
 
 
+function storage() {
+  const storedUsers = JSON.stringify(User.allUsers)
+  localStorage.setItem( 'users', storedUsers);
+}
 
-  // ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
+function getStorage() {
+  const getUsers = localStorage.getItem('users')
+  // parse the data from local storage
+  if (getUsers !== null) {
+    // grab reference to the quetion container
+    //grab reference to homepage <h1> & <p>
+    //create a new inner.html on the question container. 
+    // edit the information to say 'weclome back'
+    //post a resume button
+    //have the resume button render the first question rather than the 'select your character'
+  }
+};
+
+// ------------------------------------------------------- Start of Story ------------------------------------------------------------------
+
+// ------------------------------------------------------- Chapter 1 ----------------------------------------------------------------------
 
 let game = {
     path: 'Q1',
@@ -110,7 +166,7 @@ let game = {
       npc: 'Denial',
       story: 'You wake as though from a dream that feels to have lasted an eternity, yet any effort to recall the details beyond brief flashes of imagery leave your head spinning. Everything aches down to your very bones. A strange feeling, you think as you raise your hands to wipe the sleep from your eyes, for you do not believe yourself old enough to have aching bones.But for a moment your hands appear old and withered before returning to a youthful state. They are covered in blood. “So you lived,” an otherworldly voice speaks to you. It is neither loud nor soft but sounds right next to you despite the distance between you and the stump upon which they sit. They wear a thick cloak, the hood pulled up to conceal their face, meticulously peeling an apple with a dagger. “You almost had me worried.” When they turn to face you, you can nearly see the gleam in their eyes. As the wind changes, the direction of the light shifts, and you see it filter across their face.',
       question: 'You know this person. Not them as an individual, but you know their face. You know their deeds. You know why they are here. But that is all you know. You can not say how you ended up in this forest, if you were here to begin within or if you were brought. You do not even know your own name or whose blood stains your trembling hands. The figure approaches, extending a pale hand to offer you an apple. “Trust me, userName this is exactly what you deserve. Are you ready?”',
-      image: {//image src}
+      image: 'img/traveler.jpeg',
         choices: [
             {
                 response: 'Yes(this will take you to q2a)',
@@ -136,6 +192,8 @@ let game = {
         npc: 'Anger2a',
         story: 'The figure seems to frown and takes a step back. “That doesn’t sound like you at all, Username. You must have hit your head harder than I thought during the journey.”',
         question: 'Did you really expect things to be different this time?',
+        image: '' ,
+
         choices: [
             {
                 response: 'I don\'t know what you mean...',
@@ -163,7 +221,7 @@ let game = {
         ]
     },
 
-    // ------------------------------------------------------- Game Over 1 -------------------------------------------------------------------
+    // ------------------------------------------------------- Game Over -------------------------------------------------------------------
     gameOver1: {
         npc: 'Game Over',
         story: 'You refuse to play this game, but as a result you are stuck in this forest and cannot find your way out...',
@@ -243,7 +301,7 @@ let game = {
 
     
 
-    // ------------------------------------------------------- Chapter 4 pt2 -------------------------------------------------------------------
+    // ------------------------------------------------------- Chapter 4 pt2 ---------------------------------------------------------------
     Q4Pt2: {
         npc: 'this is the name of the npc',
         story: 'The figure pauses and merely shrugs. "If you haven\t figured it out yet, you will by the time we\re done.',
@@ -275,7 +333,7 @@ let game = {
         ]
     },
 
-      // ------------------------------------------------------- Chapter 5 -------------------------------------------------------------------
+      // ------------------------------------------------------- Chapter 5 ----------------------------------------------------------------
 
       Q5: {
         npc: 'this is the name of the npc',
@@ -449,55 +507,6 @@ Q10: {
 },
 };
   
-//Add an ID for <div> above questions. 
-function renderQuestions() {
-  let questionContainer = document.getElementById('question-container');
-  questionContainer.innerHTML = `
-  <div id="questions-container">
-  <h1 id="qcH1">${game[game.path].npc} <h1> 
-  <p id="qcStory">${game[game.path].story} <p>
-  <p id="qcQuestion">${game[game.path].question}<p>
-  <div id="choiceGroup">
-  ${renderChoices()}
-  </div>
-  <input type="submit" id="continue" value="Continue...">
-  <div> 
-  `
-// insert inner.HTML ' for the image of the specific path being callled' 
-  let continueGame = document.getElementById('continue');
-  continueGame.addEventListener('click', function(event) {
-    event.preventDefault();
-    path()
-    renderQuestions();
-  })
-};
-
-function renderChoices() {
-  let response = " ";
-  for(let i = 0; i < game[game.path].choices.length; i++) {
-    response += `
-    <div id="choice-container">
-    <input data-path = ${game[game.path].choices[i].path} id = "radio${i}" type = "radio" name = "response"/>
-    <label for "radio${i}">${game[game.path].choices[i].response}</label>
-    </div>
-    `;
-
-
-  }
-  return response;
-}
-
-
-function path() {
-  let path = document.querySelectorAll('input[type="radio"]')
-  for (let i = 0; i < path.length; i++) {
-    if (path[i].checked)
-    game.path = path[i].getAttribute('data-path');
-    console.log(game.path)
-  }
-}
-
-
     // ----------------------------------------------------Function Calls-------------------------------------------------------------------
 
 initialLoad();

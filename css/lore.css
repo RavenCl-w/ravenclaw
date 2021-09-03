@@ -90,3 +90,9 @@ h3 {
     font-family: 'WindSong', cursive;
     font-size: 32pt;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+
+}

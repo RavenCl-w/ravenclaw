@@ -136,7 +136,7 @@ function path() {
 
 // Renders existing user if there is storage data
 User.prototype.renderExistingUser = function(nameElementId,roleElementId) {
-    nameElementId.textContent = "Welcome back " + this.name + ", " +  " Its lovely to see you again..." + " Would you like to continue?"
+    nameElementId.textContent = "Welcome back " + this.name + ", " +  " It's lovely to see you again..." + " Would you like to continue?"
     roleElementId.textContent = "Click New Game to create a new character or Resume to continue your adventure."
   };
 // Adjusts the intial load text if a user is returning to a page.
@@ -185,8 +185,8 @@ let game = {
     path: 'Q1',
     Q1: {
       npc: '',
-      story: 'You wake as though from a dream that feels to have lasted an eternity, yet any effort to recall the details beyond brief flashes of imagery leave your head spinning. Everything aches down to your very bones. A strange feeling, you think as you raise your hands to wipe the sleep from your eyes, for you do not believe yourself old enough to have aching bones.But for a moment your hands appear old and withered before returning to a youthful state. They are covered in blood. “So you lived,” an otherworldly voice speaks to you. It is neither loud nor soft but sounds right next to you despite the distance between you and the stump upon which they sit. They wear a thick cloak, the hood pulled up to conceal their face, meticulously peeling an apple with a dagger. “You almost had me worried.” When they turn to face you, you can nearly see the gleam in their eyes. As the wind changes, the direction of the light shifts, and you see it filter across their face.',
-      question: `You know this person. Not them as an individual, but you know their face. You know their deeds. You know why they are here. But that is all you know. You can not say how you ended up in this forest, if you were here to begin within or if you were brought. You do not even know your own name or whose blood stains your trembling hands. The figure approaches, extending a pale hand to offer you an apple. “Trust me, this is exactly what you deserve. Are you ready?”`,
+      story: 'There\’s nothing here worth saving. <br><br>These are the last words you remember hearing before your eyes open. You have woken as if from a dream that lasted an eternity. Beyond brief flashes of imagery, you remember nothing of it, and trying to recall the finer details makes your head spin. Raising your hands to wipe the sleep from your eyes, you see they are covered in burns and ash.  <br>br> What happened to you?  <br><br>“So you\’re awake,”</b> an otherworldly voice calls out to you. It is neither near nor far, neither loud nor soft, and yet it is directly in your ear though the figure it seems to be coming from sits atop a log a distance away, calmly peeling an apple with a small knife. “You almost had me worried.”</br></br> You do not know this person, and yet as they turn to face you, you know exactly who they are. Your eyes grow hot with unshed tears. <br><br>This isn\’t fair. <br><br> “No it isn\’t,” they reply to your unspoken sentiment, tossing you a fresh apple as they stand. They speak with such an air of familiarity you cannot help but wonder if you have been in this place before.',
+      question: `“Come along, old friend. Are you ready to begin?”`,
       image: './img/greenMossPath.jpg',  
       choices: [
             {
@@ -227,8 +227,8 @@ let game = {
     },
     Q2B: {
         npc: '',
-        story: 'The figure seems to smile beneath their hood and extends the apple further, “How predictable. You said that last time.',
-        question: 'Are you beginning to remember?',
+        story: 'Though their face is covered in shadow by their hood, you see a faint smile begin to tug at the corners of their mouth. <br><br>“How predictable. You said that last time.” They turn away from you, and yet their voice remains close as if in your very mind. <br><br>“Most are disoriented upon arrival. It\’s only natural that multiple visits make the mind worse.”',
+        question: 'Are you beginning to remember the last time?',
         image: './img/greenMossPath.jpg',
         choices: [
             {
@@ -259,7 +259,7 @@ let game = {
 // ------------------------------------------------------- Chapter 3- The Town--------------------------------------------------------------
     Q3: {
         npc: '',
-        story: 'Despite your protests, the hooded figure shoves the apple in your hands. When you look down, it\'s no longer an apple, but a book bearing your name on the cover. You look up and the scenery has changed. The forest is gone and you\'re standing in the middle of a town square. The figure points out a person and you realize it\'s a younger version of you. You watch as they argue with a shopkeeper and flinch knowing that the punch is coming. As you watch the blood pooling under your younger selfs head, the figure asks,',
+        story: 'Any protests you have seem to fall on apathetic ears – this person has already begun to move on. Well… at least you have a snack. You look down at the apple in your hands only to find that it has become a book. It bears a name you believe to be yours, and just as you know who this individual is, you also know what the contents of this book are. You know better than to open it. <br><br>When you look back up, you are no longer in the forest where you woke. Instead, you are in the middle of a town square. This place is familiar. When the hooded figure directs your attention to a certain conversation taking place a few shops down, you begin to understand why. <br><br>The person you watch is a younger version of yourself. They are engaged in a heated debate, and when you see who with, your stomach twists. <br><br>This was the last time you saw your friend alive. <br><br>You flinch seeing your younger self knocked out so easily over words that should never have been said.<br><br> Your hooded associate turns to face you.',
         question: '"Looking back now, do you think this was deserved?"',
         image: './img/townriver.png',  
         choices: [
@@ -314,7 +314,7 @@ let game = {
     },
     Q4C: {
         npc: '',
-        story: 'The Figure chuckles lightly and replies, "You would say that."',
+        story: 'The Figure chuckles lightly shaking their head and replies, "Of course you would say that."',
         question: 'Could there have been a better way?',
         image: './img/townriver.png',
         choices: [
@@ -625,7 +625,7 @@ Q9: {
  // ------------------------------------------------------- Game Over 4 ------------------------------------------------------------------- 
  GameOver4: {
     npc: 'Game Over',
-    story: 'Cleary you\'ve learned nothing. Yes we\'ll try again',
+    story: 'Clearly you\'ve learned nothing. Yes we\'ll try again',
     question: '',
     image: './img/turning-figure.jpeg',  
     choices: [

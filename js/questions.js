@@ -268,7 +268,7 @@ let game = {
                   path: 'Q4A'
                 },
               {
-                  response: 'Yes.This is absolutely deserved...',
+                  response: 'Yes. This is absolutely deserved...',
                   path: 'Q4B'
                 },
               {

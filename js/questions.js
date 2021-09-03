@@ -12,15 +12,15 @@ function newInitialLoad() {
     event.preventDefault();
     questionContainer.innerHTML = `
     <div class="wrapper">
-      <h1>Hello New Player, What do we call you?<h1>
+      <h1>I dont think we've met before, who might you be?<h1>
       
       <form id="form" onsubmit="return false"> 
       
-      <label id="nameField">'UserName'</label>
-      <input type="text" name="nameField" placeholder="UserName" required>
+      <label id="nameField">Name</label>
+      <input type="text" name="nameField" placeholder="" required>
       </label>
 
-      <label id="role">Select Your Class</label>
+      <label id="role">Class</label>
       <select name="role" id="classSelection">
       <option value="img/artistsmpl.png">Artist</option>
       <option value="img/historiansmpl.png">Historian</option>
@@ -28,7 +28,7 @@ function newInitialLoad() {
       </select>
       </label>
 
-      <button type="submit" id="submitButton"> Start Your Adventure</button>
+      <button type="submit" id="submitButton">Let's Begin</button>
       </form>
       <div>`;  
 

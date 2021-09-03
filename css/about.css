@@ -68,6 +68,7 @@ main {
   font-size: 40px;
   color: gold;
   padding: 30px;
+  
 
   
 }
@@ -78,7 +79,21 @@ main {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+  transition: transform .5s;
+  
 
+}
+
+#profiles *:hover {
+
+  transform: scale(1.1);
+
+
+}
+
+img {
+  box-shadow: 0px 10px 15px white;
+  border-radius: 100px;
 }
 
 #profiles a {
@@ -159,4 +174,11 @@ main {
   to { 
   -webkit-transform: translate3d(1000px, 0px, 0px);
   }
+}
+
+a {
+  color: gold;
+  text-decoration: none;
+  box-shadow: 0px 10px 15px white;
+
 }

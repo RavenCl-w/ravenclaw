@@ -185,7 +185,7 @@ let game = {
     path: 'Q1',
     Q1: {
       npc: '',
-      story: 'There\’s nothing here worth saving. <br><br>These are the last words you remember hearing before your eyes open. You have woken as if from a dream that lasted an eternity. Beyond brief flashes of imagery, you remember nothing of it, and trying to recall the finer details makes your head spin. Raising your hands to wipe the sleep from your eyes, you see they are covered in burns and ash.  <br>br> What happened to you?  <br><br>“So you\’re awake,”</b> an otherworldly voice calls out to you. It is neither near nor far, neither loud nor soft, and yet it is directly in your ear though the figure it seems to be coming from sits atop a log a distance away, calmly peeling an apple with a small knife. “You almost had me worried.”</br></br> You do not know this person, and yet as they turn to face you, you know exactly who they are. Your eyes grow hot with unshed tears. <br><br>This isn\’t fair. <br><br> “No it isn\’t,” they reply to your unspoken sentiment, tossing you a fresh apple as they stand. They speak with such an air of familiarity you cannot help but wonder if you have been in this place before.',
+      story: 'There\’s nothing here worth saving. <br><br>These are the last words you remember hearing before your eyes open. You have woken as if from a dream that lasted an eternity. Beyond brief flashes of imagery, you remember nothing of it, and trying to recall the finer details makes your head spin. Raising your hands to wipe the sleep from your eyes, you see they are covered in burns and ash.  <br><br> What happened to you?  <br><br>“So you\’re awake,”</b> an otherworldly voice calls out to you. It is neither near nor far, neither loud nor soft, and yet it is directly in your ear though the figure it seems to be coming from sits atop a log a distance away, calmly peeling an apple with a small knife. “You almost had me worried.”</br></br> You do not know this person, and yet as they turn to face you, you know exactly who they are. Your eyes grow hot with unshed tears. <br><br>This isn\’t fair. <br><br> “No it isn\’t,” they reply to your unspoken sentiment, tossing you a fresh apple as they stand. They speak with such an air of familiarity you cannot help but wonder if you have been in this place before.',
       question: `“Come along, old friend. Are you ready to begin?”`,
       image: './img/greenMossPath.jpg',  
       choices: [
@@ -247,7 +247,7 @@ let game = {
         npc: '',
         story: 'You refuse to play this game, but as a result you are stuck in this forest and cannot find your way out...',
         question: 'Try your luck again?',
-        image: './img/Grim Forest.jpg',
+        image: './img/GrimForest.jpg',
         choices: [
             {
                 response: '*Walk deeper into the forest*',
